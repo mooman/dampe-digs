@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://byppqdwsxroq1"]
+
+[ext_resource type="Script" uid="uid://mnm64lttjyxx" path="res://scripts/camera.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://e6fvw4lqo3tw" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://vmyxi0yagv1u" path="res://scenes/killzone.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b7v4dcwe55lcd" path="res://scenes/world.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://1g72o753cscr" path="res://scenes/blue_rupee.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://rxysfkp4joi7" path="res://scenes/green_rupee.tscn" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://eb0l2bnannak" path="res://scripts/game_manager.gd" id="8_0tnpc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
+font_size = 50
+
+[node name="Game" type="Node2D" unique_id=135924964]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1122608236]
+position = Vector2(2, 5)
+zoom = Vector2(2.24, 2.24)
+process_callback = 0
+limit_left = -257
+limit_right = 255
+limit_bottom = 1400
+position_smoothing_enabled = true
+script = ExtResource("1_iywne")
+
+[node name="KILLZONE" parent="." unique_id=487436153 instance=ExtResource("4_lbhrr")]
+position = Vector2(2, -139)
+rotation = 3.1415927
+script = null
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KILLZONE" unique_id=1254750648]
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[node name="Player" parent="." unique_id=712855751 instance=ExtResource("1_uwrxv")]
+position = Vector2(1, 15)
+
+[node name="World" parent="." unique_id=2010661223 instance=ExtResource("4_u5sy4")]
+
+[node name="BlueRupee" parent="." unique_id=761920134 instance=ExtResource("5_iywne")]
+position = Vector2(-73, 13)
+
+[node name="GreenRupee" parent="." unique_id=1091606547 instance=ExtResource("6_p57ef")]
+position = Vector2(58, 15)
+
+[node name="GameManager" type="Node" parent="." unique_id=688371680]
+script = ExtResource("8_0tnpc")
+
+[node name="HUD" type="CanvasLayer" parent="GameManager" unique_id=248944223]
+
+[node name="Rupees" type="Label" parent="GameManager/HUD" unique_id=1050714233]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -173.0
+offset_bottom = 69.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_u5sy4")
+horizontal_alignment = 2
+
+[node name="GreenRupee" parent="GameManager/HUD" unique_id=521675969 instance=ExtResource("6_p57ef")]
+position = Vector2(1086, 35)
+scale = Vector2(2.38, 2.38)

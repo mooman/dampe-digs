@@ -1,0 +1,44 @@
+[gd_resource type="TileSet" format=3 uid="uid://f6177kmrc6r8"]
+
+[ext_resource type="Texture2D" uid="uid://ckoylfqverwbh" path="res://assets/sprites/tilemap.png" id="1_40h4r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pa8r4"]
+texture = ExtResource("1_40h4r")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/custom_data_0 = 1
+0:0/0/custom_data_1 = "top-level-dirt"
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/custom_data_0 = 1
+1:0/0/custom_data_1 = "inner-level-dirt"
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0/custom_data_0 = -1
+2:0/0/custom_data_1 = "iron"
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0/custom_data_0 = 3
+3:0/0/custom_data_1 = "obsidian"
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:0/0/custom_data_0 = 2
+4:0/0/custom_data_1 = "stone"
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:0/0/custom_data_0 = 1
+5:0/0/custom_data_1 = "amber"
+6:0/0 = 0
+6:0/0/custom_data_0 = 1
+6:0/0/custom_data_1 = "gold"
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "hardness"
+custom_data_layer_0/type = 2
+custom_data_layer_1/name = "name"
+custom_data_layer_1/type = 4
+sources/2 = SubResource("TileSetAtlasSource_pa8r4")

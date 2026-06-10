@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cv235f1tayylt"]
+
+[ext_resource type="Script" uid="uid://eb0l2bnannak" path="res://scripts/game_manager.gd" id="1_glms7"]
+[ext_resource type="PackedScene" uid="uid://rxysfkp4joi7" path="res://scenes/green_rupee.tscn" id="2_udu3i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_go7sj"]
+font_size = 50
+
+[node name="GameManager" type="Node" unique_id=1563915299]
+script = ExtResource("1_glms7")
+metadata/_edit_horizontal_guides_ = [32.0]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=270076198]
+
+[node name="Rupees" type="Label" parent="HUD" unique_id=2075034250]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = -2.0
+offset_right = -7.0
+offset_bottom = 67.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_go7sj")
+horizontal_alignment = 2
+
+[node name="GreenRupeeee" parent="HUD" unique_id=761920134 instance=ExtResource("2_udu3i")]
+position = Vector2(1068, 32)
+scale = Vector2(2.38, 2.38)
+
+[node name="Timers" type="Node" parent="." unique_id=1252016800]
+
+[node name="DeathTimer" type="Timer" parent="Timers" unique_id=120245261]
+wait_time = 1.5
+one_shot = true
+
+[node name="NextLevelTimer" type="Timer" parent="Timers" unique_id=1519555835]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="Timers/NextLevelTimer" to="." method="_on_next_level_timer_timeout"]

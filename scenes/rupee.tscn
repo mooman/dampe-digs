@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://864105881ms7"]
+
+[ext_resource type="Script" uid="uid://bvx65ke8qr6oe" path="res://scripts/rupee.gd" id="1_vhuxe"]
+[ext_resource type="AudioStream" uid="uid://cskkst3fcrfng" path="res://assets/sfx/rupee.mp3" id="2_vhuxe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ckha"]
+radius = 3.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_nnao4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vhuxe"]
+resource_name = "pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.03],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wxhw"]
+_data = {
+&"RESET": SubResource("Animation_nnao4"),
+&"pickup": SubResource("Animation_vhuxe")
+}
+
+[node name="Rupee" type="Area2D" unique_id=761920134]
+collision_mask = 2
+script = ExtResource("1_vhuxe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=970224861]
+visible = false
+shape = SubResource("CapsuleShape2D_3ckha")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1390342636]
+stream = ExtResource("2_vhuxe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1501451748]
+libraries/ = SubResource("AnimationLibrary_3wxhw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

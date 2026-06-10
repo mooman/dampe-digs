@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c7hnxg1ybrpxr"]
+
+[ext_resource type="PackedScene" uid="uid://cbtvuy3cl4a57" path="res://scenes/level_template.tscn" id="1_4nkto"]
+[ext_resource type="TileSet" uid="uid://f6177kmrc6r8" path="res://tilesets/world.tres" id="2_4nkto"]
+[ext_resource type="PackedScene" uid="uid://rxysfkp4joi7" path="res://scenes/green_rupee.tscn" id="3_15mv3"]
+[ext_resource type="PackedScene" uid="uid://brgo5eeb6vgyw" path="res://scenes/chamber_stone.tscn" id="4_15mv3"]
+[ext_resource type="PackedScene" uid="uid://1g72o753cscr" path="res://scenes/blue_rupee.tscn" id="4_e3sih"]
+
+[node name="Level1" unique_id=1706995701 instance=ExtResource("1_4nkto")]
+level = 1
+
+[node name="World" parent="." index="0" unique_id=2010661223]
+tile_set = ExtResource("2_4nkto")
+
+[node name="GreenRupee" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="0" unique_id=761920134 instance=ExtResource("3_15mv3")]
+position = Vector2(-45, 499)
+
+[node name="GreenRupee2" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="1" unique_id=416282320 instance=ExtResource("3_15mv3")]
+position = Vector2(51, 304)
+
+[node name="GreenRupee3" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="2" unique_id=737870091 instance=ExtResource("3_15mv3")]
+position = Vector2(45, 430)
+
+[node name="GreenRupee4" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="3" unique_id=712716182 instance=ExtResource("3_15mv3")]
+position = Vector2(149, 114)
+
+[node name="GreenRupee5" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="4" unique_id=1419991247 instance=ExtResource("3_15mv3")]
+position = Vector2(-117, 822)
+
+[node name="GreenRupee6" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="5" unique_id=86495457 instance=ExtResource("3_15mv3")]
+position = Vector2(-17, 697)
+
+[node name="GreenRupee7" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="6" unique_id=363264954 instance=ExtResource("3_15mv3")]
+position = Vector2(118, 821)
+
+[node name="BlueRupee" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="7" unique_id=886899074 instance=ExtResource("4_e3sih")]
+position = Vector2(48, 660)
+
+[node name="BlueRupee2" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="8" unique_id=849480525 instance=ExtResource("4_e3sih")]
+position = Vector2(83, 661)
+
+[node name="BlueRupee3" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="9" unique_id=1421436094 instance=ExtResource("4_e3sih")]
+position = Vector2(143, 433)
+
+[node name="BlueRupee4" parent="Rupees" parent_id_path=PackedInt32Array(2117637533) index="10" unique_id=180533654 instance=ExtResource("4_e3sih")]
+position = Vector2(-146, 306)
+
+[node name="ChamberStone" parent="." index="6" unique_id=89021374 instance=ExtResource("4_15mv3")]
+position = Vector2(-1.9073486e-06, 1042)
+rotation = 0.018260002
+scale = Vector2(0.99999994, 0.99999994)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://brgo5eeb6vgyw"]
+
+[ext_resource type="Texture2D" uid="uid://s2y2xqfgqsus" path="res://assets/sprites/ChamberStone.png" id="1_7v7w4"]
+[ext_resource type="Script" uid="uid://b15wvtyq23pt6" path="res://scripts/chamber_stone.gd" id="1_jh64d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7v7w4"]
+radius = 7.0
+height = 14.0
+
+[node name="ChamberStone" type="Area2D" unique_id=89021374]
+collision_mask = 2
+script = ExtResource("1_jh64d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829114426]
+position = Vector2(0, -3)
+texture = ExtResource("1_7v7w4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263190313]
+visible = false
+shape = SubResource("CapsuleShape2D_7v7w4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://rxysfkp4joi7"]
+
+[ext_resource type="PackedScene" uid="uid://864105881ms7" path="res://scenes/rupee.tscn" id="1_o3gh8"]
+[ext_resource type="Texture2D" uid="uid://qfnsvw1wvjoh" path="res://assets/sprites/green-rupee.png" id="2_1p2u8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htmiq"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bosmi"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phdxc"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0fep"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q8uu"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6klwb"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4fmt"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2ca2"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg8mw"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4042j"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy5mu"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qnln"]
+atlas = ExtResource("2_1p2u8")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpxcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htmiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bosmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phdxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0fep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q8uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6klwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4fmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2ca2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg8mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4042j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy5mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qnln")
+}],
+"loop": true,
+"name": &"sparkle",
+"speed": 15.0
+}]
+
+[node name="GreenRupee" unique_id=761920134 instance=ExtResource("1_o3gh8")]
+coin_value = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=587343399]
+sprite_frames = SubResource("SpriteFrames_rpxcw")
+animation = &"sparkle"
+autoplay = "sparkle"
+frame = 9
+frame_progress = 0.816131

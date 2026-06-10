@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d3rirpg4j0psy"]
+
+[ext_resource type="Script" uid="uid://s8l08vcwcln4" path="res://scripts/game_over.gd" id="1_xeevv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0nqlu"]
+font_size = 100
+font_color = Color(0, 1, 0.60784316, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xeevv"]
+font_size = 17
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Node2D" unique_id=1863615770]
+script = ExtResource("1_xeevv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2023379488]
+offset_right = 1154.0
+offset_bottom = 652.0
+color = Color(0, 0.6784314, 0.8784314, 1)
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1386870904]
+offset_left = 299.0
+offset_top = 260.0
+offset_right = 873.0
+offset_bottom = 397.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_0nqlu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1611548851]
+offset_top = 388.0
+offset_right = 1155.0
+offset_bottom = 437.0
+alignment = 1
+
+[node name="RestartInstructionLabel" type="Label" parent="HBoxContainer" unique_id=661112719]
+layout_mode = 2
+text = "Press \"Dig\" to restart"
+label_settings = SubResource("LabelSettings_xeevv")

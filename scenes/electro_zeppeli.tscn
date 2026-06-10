@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://bv4ywbijt3pp8"]
+
+[ext_resource type="Texture2D" uid="uid://caaklv663263m" path="res://assets/sprites/electro-zeppeli.png" id="1_vdmxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa0t6"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv3cs"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx47f"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axluc"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbrve"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rff22"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvpsa"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkt68"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n4pq"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3js2x"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8doh"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc02e"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwj5m"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxlv4"]
+atlas = ExtResource("1_vdmxf")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqvlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa0t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv3cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx47f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axluc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbrve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rff22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvpsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkt68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n4pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3js2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8doh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc02e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwj5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxlv4")
+}],
+"loop": false,
+"name": &"death",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdmxf"]
+size = Vector2(10, 17)
+
+[node name="electro-zeppeli" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, 0)
+sprite_frames = SubResource("SpriteFrames_yqvlk")
+animation = &"death"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3, 2.5)
+shape = SubResource("RectangleShape2D_vdmxf")
