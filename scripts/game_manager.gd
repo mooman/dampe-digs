@@ -1,36 +1,113 @@
 extends Node
 
-@onready var hud_rupees = $HUD/Rupees
+@onready var _hud_rupees_label: Label = $HUD/Rupees
 
-# Initial level states
 var camera: Camera2D
 var player: CharacterBody2D
-var current_level: int = 0
+var current_level: int = 1
 
-var number_of_rupees: int = 0:
-  set(value):
-    number_of_rupees = value
-    hud_rupees.text = str(value)
+# Persistent currency. Sole source of truth for spend(). Survives across
+# levels/scenes; only mutated by spend() and finish_level().
+var bank: int = 0
 
-func add_rupee(how_much: int):
-    number_of_rupees = how_much + number_of_rupees
+# Rupees collected during the current level attempt. Reset to 0 whenever a
+# level (re)starts. Only folded into `bank` by finish_level() (reaching the
+# chamber stone) -- dying forfeits any rupees collected that run.
+var level_rupees: int = 0
 
-func next_level():
+var active_powerups: Array = []
+
+func _ready() -> void:
+    _update_hud(bank)
+
+# --- Rupee / bank ----------------------------------------------------------
+
+func add_rupee(how_much: int) -> void:
+    level_rupees += how_much
+    _update_hud(level_rupees)
+
+func spend(amount: int) -> bool:
+    if bank < amount:
+        return false
+    bank -= amount
+    _update_hud(bank)
+    return true
+
+func _update_hud(value: int) -> void:
+    _hud_rupees_label.text = str(value)
+
+# --- Powerups ----------------------------------------------------------
+
+func grant_powerup(p: Powerup) -> void:
+    active_powerups.append(p)
+    p.apply()
+
+func reapply_powerups() -> void:
+    for p in active_powerups:
+        p.apply()
+
+func clear_powerups() -> void:
+    for p in active_powerups:
+        p.remove()
+    active_powerups.clear()
+
+# --- Flow / scene transitions --------------------------------------------
+
+# Called when a level's exit chamber is reached. Despite the name, this does
+# NOT load the next level directly -- it banks this run's rupees, advances
+# the level counter, and routes back to the menu, where the next level is
+# actually picked/started.
+func finish_level() -> void:
+    bank += level_rupees
+    level_rupees = 0
     current_level += 1
-    camera.stop()
-    $Timers/NextLevelTimer.start()
+    return_to_menu()
 
-func game_over():
-    camera.stop()
-    player.die()
+# Called when the player dies. Rupees collected this run are forfeited (not
+# banked) -- only reaching the chamber stone via finish_level() banks rupees.
+func game_over() -> void:
+    level_rupees = 0
+    _update_hud(bank)
+    if camera:
+        camera.stop()
+    if player:
+        player.die()
     $Timers/DeathTimer.start()
 
-func restart_level():
-    number_of_rupees = 0
-    get_tree().change_scene_to_file("res://scenes/level_%d.tscn" % current_level)
+# Returns to the menu: clears active powerups and stops the camera if set.
+func return_to_menu(immediate: bool = false) -> void:
+    clear_powerups()
+    if camera:
+        camera.stop()
+
+    if immediate:
+        _on_menu_timer_timeout()
+    else:
+        $Timers/MenuTimer.start()
+
+# Loads a level immediately. Resets the in-level rupee counter to 0.
+func goto_level(level: int = current_level) -> void:
+    level_rupees = 0
+    _update_hud(level_rupees)
+    _change_scene("res://scenes/level_%d.tscn" % level)
+
+# Only real caller is the menu's "Start/Continue" item -- resumes gameplay
+# at whatever level was left off on.
+func continue_from_menu() -> void:
+    goto_level()
+
+# Shared scene-change helper: clears stale camera/player refs at the exact
+# moment a transition starts, so nothing can act on a freed scene's nodes.
+# Whatever scene loads next reassigns player/camera itself (level.gd and
+# player.gd for levels, player.gd for the menu's own Dampe instance).
+func _change_scene(path: String) -> void:
+    camera = null
+    player = null
+    get_tree().change_scene_to_file(path)
 
 func _on_death_timer_timeout() -> void:
-    get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+    _change_scene("res://scenes/game_over.tscn")
 
-func _on_next_level_timer_timeout() -> void:
-    restart_level()
+func _on_menu_timer_timeout() -> void:
+    _update_hud(bank)
+    _change_scene("res://scenes/menu_screen.tscn")

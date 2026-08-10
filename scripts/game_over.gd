@@ -2,4 +2,4 @@ extends Node2D
 
 func _process(delta: float) -> void:
     if Input.is_action_just_pressed("dig"):
-        GameManager.restart_level()
+        GameManager.return_to_menu(true)

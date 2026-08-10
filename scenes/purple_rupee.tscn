@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://gqequxkc6xym"]
+
+[ext_resource type="PackedScene" uid="uid://864105881ms7" path="res://scenes/rupee.tscn" id="1_1ypn7"]
+[ext_resource type="Texture2D" uid="uid://gcf1b7apwym6" path="res://assets/sprites/rupee-purple.png" id="2_ugta6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkr8e"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfq3p"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg0kf"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mevmc"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqg6r"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3akts"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngi1e"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bndu"]
+atlas = ExtResource("2_ugta6")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ko1dm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkr8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfq3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg0kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mevmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqg6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3akts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngi1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bndu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="PurpleRupee" unique_id=761920134 instance=ExtResource("1_1ypn7")]
+coin_value = 50
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3" unique_id=489102438]
+sprite_frames = SubResource("SpriteFrames_ko1dm")
+autoplay = "default"
+frame = 7
+frame_progress = 0.57464117

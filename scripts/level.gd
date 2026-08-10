@@ -8,3 +8,4 @@ func _ready() -> void:
     GameManager.current_level = level
     GameManager.camera = camera
     GameManager.player = player
+    print("Bank amount: ", GameManager.bank)

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://fo8jcdxftiqh" path="res://assets/sprites/dampe-digs.png" id="2_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://caivm5oi10gie" path="res://assets/sfx/dig-dirt.ogg" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cr4glyxgcicjg" path="res://assets/sprites/dampe-death.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://l6mxg7iu0dwi" path="res://assets/sprites/dampe-run.png" id="5_tuyoq"]
+[ext_resource type="FontFile" uid="uid://dhsd8yxdv65so" path="res://fonts/PixelOperator.ttf" id="6_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
@@ -73,6 +75,22 @@ region = Rect2(288, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("4_qlg0r")
 region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
 animations = [{
@@ -150,7 +168,29 @@ animations = [{
 "loop": false,
 "name": &"rip",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.5
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_smehm"]
+font = ExtResource("6_fjrip")
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 6.0
@@ -164,6 +204,34 @@ script = ExtResource("1_g2els")
 sprite_frames = SubResource("SpriteFrames_qhqgy")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.19705328
+
+[node name="Dialog" type="Label" parent="AnimatedSprite2D" unique_id=1977239495]
+z_index = 99
+z_as_relative = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.875
+offset_top = -39.0
+offset_right = 31.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Dialog"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D/Dialog" unique_id=210420605]
+z_index = 98
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6862745, 0.5529412, 0.34901962, 0.5529412)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1093866687]
 visible = false
@@ -174,3 +242,6 @@ shape = SubResource("CapsuleShape2D_dqkch")
 
 [node name="Dirt" type="AudioStreamPlayer" parent="DigSFX" unique_id=1046771906]
 stream = ExtResource("4_dqkch")
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=483561667]
+target_position = Vector2(0, 26)

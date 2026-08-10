@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bua5ul0y1wolm"]
+
+[ext_resource type="PackedScene" uid="uid://d32vnr5urx3dt" path="res://scenes/menu_item.tscn" id="1_78y5j"]
+[ext_resource type="Script" path="res://scripts/market_item.gd" id="2_qoe8i"]
+
+[node name="MarketItem" unique_id=1559902330 instance=ExtResource("1_78y5j")]
+script = ExtResource("2_qoe8i")

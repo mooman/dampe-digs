@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://pyhiclnvdxd"]
+
+[ext_resource type="PackedScene" uid="uid://864105881ms7" path="res://scenes/rupee.tscn" id="1_d5bo5"]
+[ext_resource type="Texture2D" uid="uid://dxoelu513nsis" path="res://assets/sprites/rupee-gold.png" id="2_0er0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nljhq"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2vy3"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnbja"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_203mi"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff1ir"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4kk8"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il76f"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3sbx"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qkh4"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgun8"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xta7"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv3nb"]
+atlas = ExtResource("2_0er0f")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa00c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nljhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2vy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnbja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_203mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff1ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4kk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il76f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3sbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qkh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgun8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xta7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv3nb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="GoldRupee" unique_id=761920134 instance=ExtResource("1_d5bo5")]
+coin_value = 200
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3" unique_id=1510868218]
+sprite_frames = SubResource("SpriteFrames_sa00c")
+autoplay = "default"
+frame = 6
+frame_progress = 0.60022604

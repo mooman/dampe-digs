@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://cv235f1tayylt"]
 
 [ext_resource type="Script" uid="uid://eb0l2bnannak" path="res://scripts/game_manager.gd" id="1_glms7"]
+[ext_resource type="FontFile" uid="uid://dhsd8yxdv65so" path="res://fonts/PixelOperator.ttf" id="2_oo155"]
 [ext_resource type="PackedScene" uid="uid://rxysfkp4joi7" path="res://scenes/green_rupee.tscn" id="2_udu3i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_go7sj"]
-font_size = 50
+font = ExtResource("2_oo155")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
 
 [node name="GameManager" type="Node" unique_id=1563915299]
 script = ExtResource("1_glms7")
@@ -16,17 +21,17 @@ metadata/_edit_horizontal_guides_ = [32.0]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -180.0
-offset_top = -2.0
-offset_right = -7.0
-offset_bottom = 67.0
+offset_left = -185.0
+offset_top = 1.0
+offset_right = -12.0
+offset_bottom = 62.0
 grow_horizontal = 0
 text = "0"
 label_settings = SubResource("LabelSettings_go7sj")
 horizontal_alignment = 2
 
 [node name="GreenRupeeee" parent="HUD" unique_id=761920134 instance=ExtResource("2_udu3i")]
-position = Vector2(1068, 32)
+position = Vector2(1041, 31)
 scale = Vector2(2.38, 2.38)
 
 [node name="Timers" type="Node" parent="." unique_id=1252016800]
@@ -35,9 +40,9 @@ scale = Vector2(2.38, 2.38)
 wait_time = 1.5
 one_shot = true
 
-[node name="NextLevelTimer" type="Timer" parent="Timers" unique_id=1519555835]
+[node name="MenuTimer" type="Timer" parent="Timers" unique_id=1211084374]
 wait_time = 1.5
 one_shot = true
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
-[connection signal="timeout" from="Timers/NextLevelTimer" to="." method="_on_next_level_timer_timeout"]
+[connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://d32vnr5urx3dt"]
+
+[ext_resource type="Script" uid="uid://dq06s1aa4gfop" path="res://scripts/menu_item.gd" id="1_m5xae"]
+[ext_resource type="FontFile" uid="uid://dhsd8yxdv65so" path="res://fonts/PixelOperator.ttf" id="2_1e4j2"]
+[ext_resource type="Texture2D" uid="uid://b87l1swvwgajb" path="res://assets/sprites/menu-items.png" id="3_kru0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5xae"]
+size = Vector2(32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kii3g"]
+font = ExtResource("2_1e4j2")
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukaii"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd50n"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfc5r"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5xae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd50n")
+}],
+"loop": false,
+"name": &"lightning",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfc5r")
+}],
+"loop": false,
+"name": &"silver_shovel",
+"speed": 5.0
+}]
+
+[node name="MenuItem" type="Node2D" unique_id=1559902330]
+script = ExtResource("1_m5xae")
+
+[node name="MenuStaticBody" type="StaticBody2D" parent="." unique_id=1291128089]
+visible = false
+metadata/is_item = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuStaticBody" unique_id=788397868]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_m5xae")
+
+[node name="MenuItemLabel" type="Label" parent="." unique_id=957558837]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.5
+offset_right = 36.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_kii3g")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BlockSprite" type="Sprite2D" parent="." unique_id=1048157410]
+position = Vector2(0, -16)
+texture = SubResource("AtlasTexture_ukaii")
+
+[node name="ItemTypeSprite" type="AnimatedSprite2D" parent="." unique_id=746596738]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_m5xae")
+animation = &"none"
+autoplay = "none"
