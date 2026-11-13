@@ -5,7 +5,7 @@ extends Node
 var camera: Camera2D
 var player: CharacterBody2D
 var current_level: int = 1
-var fairy = true
+var fairy = false
 
 # Persistent currency. Sole source of truth for spend(). Survives across
 # levels/scenes; only mutated by spend() and finish_level().
