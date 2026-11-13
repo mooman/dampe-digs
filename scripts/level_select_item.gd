@@ -1,6 +1,6 @@
 extends "res://scripts/menu_item.gd"
 
-enum ItemType { NEXT_LEVEL, LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4 }
+enum ItemType { NEXT_LEVEL, LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4, LEVEL_5, LEVEL_6 }
 @export var item_type: ItemType
 
 var data
@@ -35,6 +35,18 @@ const ITEMS = {
         'label': 'Level 4',
         'description': 'Go to Level 4',
         'level': 4
+    },
+    ItemType.LEVEL_5: {
+        'icon': 'none',
+        'label': 'Level 5',
+        'description': 'Go to Level 5',
+        'level': 5
+    },
+    ItemType.LEVEL_6: {
+        'icon': 'none',
+        'label': 'Level 6',
+        'description': 'Go to Level 6',
+        'level': 6
     }
 }
 
@@ -47,3 +59,7 @@ func on_dig() -> void:
         GameManager.continue_from_menu()
     else:
         GameManager.goto_level(data.level)
+
+
+func _on_body_entered(body: Node2D) -> void:
+    pass # Replace with function body.

@@ -103,8 +103,10 @@ script = ExtResource("1_vhuxe")
 visible = false
 shape = SubResource("CapsuleShape2D_3ckha")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1390342636]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1254338341]
 stream = ExtResource("2_vhuxe")
+volume_db = 4.886
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1501451748]
 libraries/ = SubResource("AnimationLibrary_3wxhw")

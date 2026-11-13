@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://eb0l2bnannak" path="res://scripts/game_manager.gd" id="1_glms7"]
 [ext_resource type="FontFile" uid="uid://dhsd8yxdv65so" path="res://fonts/PixelOperator.ttf" id="2_oo155"]
 [ext_resource type="PackedScene" uid="uid://rxysfkp4joi7" path="res://scenes/green_rupee.tscn" id="2_udu3i"]
+[ext_resource type="AudioStream" uid="uid://nwb1rgb1bitg" path="res://assets/music/dampe-house.mp3" id="4_eaq8r"]
+[ext_resource type="AudioStream" uid="uid://sqbqgc7a8456" path="res://assets/music/shadow-link.mp3" id="5_ternb"]
+[ext_resource type="AudioStream" uid="uid://bd4r3w46h4sk2" path="res://assets/music/game-over.mp3" id="6_ternb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_go7sj"]
 font = ExtResource("2_oo155")
@@ -37,12 +40,30 @@ scale = Vector2(2.38, 2.38)
 [node name="Timers" type="Node" parent="." unique_id=1252016800]
 
 [node name="DeathTimer" type="Timer" parent="Timers" unique_id=120245261]
-wait_time = 1.5
+wait_time = 6.0
 one_shot = true
 
 [node name="MenuTimer" type="Timer" parent="Timers" unique_id=1211084374]
-wait_time = 1.5
+wait_time = 3.5
 one_shot = true
+
+[node name="CameraStartTimer" type="Timer" parent="Timers" unique_id=408947558]
+wait_time = 0.001
+one_shot = true
+
+[node name="BGM" type="Node" parent="." unique_id=443897684]
+
+[node name="Menu" type="AudioStreamPlayer" parent="BGM" unique_id=1273868449]
+stream = ExtResource("4_eaq8r")
+bus = &"Music"
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="BGM" unique_id=1929378509]
+stream = ExtResource("5_ternb")
+bus = &"Music"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="BGM" unique_id=99192683]
+stream = ExtResource("6_ternb")
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]
+[connection signal="timeout" from="Timers/CameraStartTimer" to="." method="_on_camera_start_timer_timeout"]

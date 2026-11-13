@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2q0ossoa5t7p"
-path="res://.godot/imported/Dampe Digs.apple-touch-icon.png-b64130cd9a63523d7fad8be9d357def4.ctex"
+uid="uid://ctmokq2xtosl8"
+path="res://.godot/imported/dampe-fairy.png-82476c368d36c002f9c0486e3d60bfa8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/Dampe Digs.apple-touch-icon.png"
-dest_files=["res://.godot/imported/Dampe Digs.apple-touch-icon.png-b64130cd9a63523d7fad8be9d357def4.ctex"]
+source_file="res://assets/sprites/dampe-fairy.png"
+dest_files=["res://.godot/imported/dampe-fairy.png-82476c368d36c002f9c0486e3d60bfa8.ctex"]
 
 [params]
 

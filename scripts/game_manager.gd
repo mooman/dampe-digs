@@ -5,6 +5,7 @@ extends Node
 var camera: Camera2D
 var player: CharacterBody2D
 var current_level: int = 1
+var fairy = true
 
 # Persistent currency. Sole source of truth for spend(). Survives across
 # levels/scenes; only mutated by spend() and finish_level().
@@ -16,6 +17,16 @@ var bank: int = 0
 var level_rupees: int = 0
 
 var active_powerups: Array = []
+
+@onready var bgm = {
+    "menu": $BGM/Menu,
+    "level": $BGM/LevelMusic,
+    "gameover": $BGM/GameOver
+}
+
+var current_bgm
+
+@onready var camera_start_timer = $Timers/CameraStartTimer
 
 func _ready() -> void:
     _update_hud(bank)
@@ -36,7 +47,7 @@ func spend(amount: int) -> bool:
 func _update_hud(value: int) -> void:
     _hud_rupees_label.text = str(value)
 
-# --- Powerups ----------------------------------------------------------
+# --- Powerups ------------------------------------------------------------
 
 func grant_powerup(p: Powerup) -> void:
     active_powerups.append(p)
@@ -58,6 +69,7 @@ func clear_powerups() -> void:
 # the level counter, and routes back to the menu, where the next level is
 # actually picked/started.
 func finish_level() -> void:
+    clear_powerups()
     bank += level_rupees
     level_rupees = 0
     current_level += 1
@@ -66,17 +78,23 @@ func finish_level() -> void:
 # Called when the player dies. Rupees collected this run are forfeited (not
 # banked) -- only reaching the chamber stone via finish_level() banks rupees.
 func game_over() -> void:
-    level_rupees = 0
-    _update_hud(bank)
-    if camera:
+    if fairy == true:
         camera.stop()
-    if player:
-        player.die()
-    $Timers/DeathTimer.start()
+        player.fairy_rescue()
+        fairy = false
+    else:  
+        play_bgm("gameover")
+        clear_powerups()
+        level_rupees = 0
+        _update_hud(bank)
+        if camera:
+            camera.stop()
+        if player:
+            player.die()
+        $Timers/DeathTimer.start()
 
 # Returns to the menu: clears active powerups and stops the camera if set.
 func return_to_menu(immediate: bool = false) -> void:
-    clear_powerups()
     if camera:
         camera.stop()
 
@@ -105,9 +123,26 @@ func _change_scene(path: String) -> void:
     player = null
     get_tree().change_scene_to_file(path)
 
+func play_bgm(track: String):
+    stop_bgm()
+    bgm[track].play()
+    current_bgm = bgm[track]
+    
+func stop_bgm():
+    if current_bgm:
+        current_bgm.stop()
+        
+func start_camera():
+    $Timers/CameraStartTimer.start()
+
 func _on_death_timer_timeout() -> void:
+    stop_bgm()
     _change_scene("res://scenes/game_over.tscn")
 
 func _on_menu_timer_timeout() -> void:
     _update_hud(bank)
     _change_scene("res://scenes/menu_screen.tscn")
+
+func _on_camera_start_timer_timeout() -> void:
+    if camera:
+        camera.start()

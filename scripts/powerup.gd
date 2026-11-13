@@ -2,7 +2,7 @@ class_name Powerup
 extends RefCounted
 
 func apply() -> void:
-	pass
+    pass
 
 func remove() -> void:
-	pass
+    pass

@@ -3,10 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cf3lj07rd2yd0" path="res://assets/sprites/dampe-idle.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://d1vn6g0y2oo4d" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://fo8jcdxftiqh" path="res://assets/sprites/dampe-digs.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://ctmokq2xtosl8" path="res://assets/sprites/dampe-fairy.png" id="3_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://caivm5oi10gie" path="res://assets/sfx/dig-dirt.ogg" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cr4glyxgcicjg" path="res://assets/sprites/dampe-death.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://l6mxg7iu0dwi" path="res://assets/sprites/dampe-run.png" id="5_tuyoq"]
 [ext_resource type="FontFile" uid="uid://dhsd8yxdv65so" path="res://fonts/PixelOperator.ttf" id="6_fjrip"]
+[ext_resource type="AudioStream" uid="uid://cxgvc0ym3dt4x" path="res://assets/sfx/dig-iron.ogg" id="8_smehm"]
+[ext_resource type="AudioStream" uid="uid://cg2oanfs0qtp8" path="res://assets/sfx/dig-stone.ogg" id="9_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
@@ -23,6 +26,62 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_qhqgy")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl8cc"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("3_y4r1p")
+region = Rect2(416, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -116,9 +175,56 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tuyoq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"digs",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt7fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqfne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnwbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl8cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}],
+"loop": 0,
+"name": &"fairy",
+"speed": 5.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -127,7 +233,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qhqgy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 4.0
 }, {
@@ -165,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4r5pv")
 }],
-"loop": false,
+"loop": 0,
 "name": &"rip",
 "speed": 15.0
 }, {
@@ -182,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ni07")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 7.5
 }]
@@ -202,9 +308,10 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1307610187]
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"idle"
+animation = &"fairy"
 autoplay = "idle"
-frame_progress = 0.19705328
+frame = 13
+frame_progress = 1.0
 
 [node name="Dialog" type="Label" parent="AnimatedSprite2D" unique_id=1977239495]
 z_index = 99
@@ -242,6 +349,18 @@ shape = SubResource("CapsuleShape2D_dqkch")
 
 [node name="Dirt" type="AudioStreamPlayer" parent="DigSFX" unique_id=1046771906]
 stream = ExtResource("4_dqkch")
+bus = &"SFX"
+
+[node name="Iron" type="AudioStreamPlayer" parent="DigSFX" unique_id=1116068709]
+stream = ExtResource("8_smehm")
+volume_db = 16.322
+bus = &"SFX"
+
+[node name="Stone" type="AudioStreamPlayer" parent="DigSFX" unique_id=755646855]
+stream = ExtResource("9_ur7pv")
+bus = &"SFX"
 
 [node name="RayCastDown" type="RayCast2D" parent="." unique_id=483561667]
 target_position = Vector2(0, 26)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

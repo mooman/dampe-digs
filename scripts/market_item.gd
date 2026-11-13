@@ -1,6 +1,6 @@
 extends "res://scripts/menu_item.gd"
 
-enum ItemType { LIGHTNING, SILVER_SHOVEL }
+enum ItemType { LIGHTNING, SILVER_SHOVEL, MAGNET, HEADSTART, FAIRY }
 @export var item_type: ItemType
 
 var ITEMS = {
@@ -17,6 +17,27 @@ var ITEMS = {
         'cost': 500,
         'description': 'Doubles shovel strength',
         'powerup': SilverShovelPowerup
+    },
+    ItemType.MAGNET: {
+        'icon': 'magnet',
+        'label': 'Magnet',
+        'cost': 800,
+        'description': 'Sucks in rupees at a 5-block diameter',
+#        'powerup': MagnetPowerup
+    },
+    ItemType.HEADSTART: {
+        'icon': 'headstart',
+        'label': 'Headstart',
+        'cost': 250,
+        'description': 'Temporarily disables the killzone',
+        'powerup': HeadstartPowerup
+    },
+    ItemType.FAIRY: {
+        'icon': 'fairy',
+        'label': 'Fairy',
+        'cost': 600,
+        'description': 'Revives you once on the next level',
+#        'powerup': FairyPowerup
     }
 }
 

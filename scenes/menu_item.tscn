@@ -14,36 +14,79 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukaii"]
 atlas = ExtResource("3_kru0o")
-region = Rect2(0, 64, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rd50n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5xae"]
 atlas = ExtResource("3_kru0o")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfc5r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e4j2"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kru0o"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kii3g"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxag1"]
 atlas = ExtResource("3_kru0o")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euw2h"]
+atlas = ExtResource("3_kru0o")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m5xae"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rd50n")
+"texture": SubResource("AtlasTexture_m5xae")
 }],
-"loop": false,
+"loop": 1,
+"name": &"fairy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e4j2")
+}],
+"loop": 1,
+"name": &"headstart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kru0o")
+}],
+"loop": 0,
 "name": &"lightning",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": false,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kii3g")
+}],
+"loop": 1,
+"name": &"magnet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxag1")
+}],
+"loop": 0,
 "name": &"none",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfc5r")
+"texture": SubResource("AtlasTexture_euw2h")
 }],
-"loop": false,
+"loop": 0,
 "name": &"silver_shovel",
 "speed": 5.0
 }]

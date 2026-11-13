@@ -3,7 +3,7 @@ extends CharacterBody2D
 const BASE_SPEED = 150.0
 const JUMP_VELOCITY = -300
 
-enum State { NORMAL, DIGGING, DEAD }
+enum State { NORMAL, DIGGING, DEAD, RESURRECTING }
 
 # Ordered crack-stage atlas coords per material, shown as a tile takes
 # non-lethal hits. Materials with no entry here (dirt, amber, gold, iron)
@@ -66,8 +66,6 @@ func start_dig():
         state = State.NORMAL
         return
 
-    $DigSFX/Dirt.play()
-
     if obj_below.get_meta('is_item', false):
         # Now we know for sure, it's an item below us
         var item_obj = obj_below.get_node('..')
@@ -80,7 +78,16 @@ func start_dig():
         if not tile_data:
             state = State.NORMAL
             return
-
+        
+        var tile_name = tile_data.get_custom_data("name")
+        if tile_name == "iron":
+            $DigSFX/Iron.play()
+        elif tile_name == "top-level-dirt" or tile_name == "inner-level-dirt":
+            $DigSFX/Dirt.play()
+        else:
+            $DigSFX/Stone.play()
+            
+            
         var hardness = tile_data.get_custom_data("hardness")
         hit_count_per_tile[map_coords] = hit_count_per_tile.get(map_coords, 0) + 1 + dig_bonus
 
@@ -99,6 +106,10 @@ func start_dig():
 func die():
     state = State.DEAD
     animated_sprite.play("rip")
+    
+func fairy_rescue():
+    state = State.RESURRECTING
+    animated_sprite.play("fairy")
 
 func open_dialog(text):
     dialog.text = text
@@ -126,7 +137,7 @@ func _process(delta: float):
             close_dialog()
 
 func _physics_process(delta: float):
-    if state == State.DEAD:
+    if state == State.DEAD or state == State.RESURRECTING:
         return
 
     # Add the gravity.
@@ -158,3 +169,9 @@ func _physics_process(delta: float):
         velocity.x = move_toward(velocity.x, 0, speed)
 
     move_and_slide()
+
+
+func _on_animation_finished() -> void:
+    if animated_sprite.animation == "fairy":
+        state = State.NORMAL
+        GameManager.camera.start()
